@@ -16,9 +16,9 @@ class MySQL
 	static protected $Result;
 	
 	/*
-		Verbindung zur Datenbank
-		Parameter: Keine
-		Return: Keine
+		Connection to Database
+		Params: Noting
+		Returned: Keine
 	*/
 	public function __construct()
 	{
@@ -34,9 +34,9 @@ class MySQL
 	}
 	
 	/*
-		Schließen der Verbindung
-		Parameter: Keine
-		Return: Keine
+		Close the Connection
+		Params: Noting
+		Returned: Noting
 	*/
 	public function __destruct()
 	{
@@ -44,9 +44,9 @@ class MySQL
 	}
 	
 	/*
-		Schickt einen Query an die Datenbank
-		Parameter: Den SQL Query
-		Return: Das ergebniss des Querys
+		Send a Query to Database
+		Params: SQL Query
+		Returned: The argument of the Query
 	*/
 	public function Query($query)
 	{
@@ -63,9 +63,9 @@ class MySQL
 	}
 	
 	/*
-		Gibt die Anzahl der Datensätze wieder
-		Parameter: Den SELECT Query
-		Return: Anzahl der Datensätze
+		Get the Count of Rows
+		Params: SQL Query
+		Returned: Count 
 	*/
 	public function RowCount($query)
 	{
@@ -76,9 +76,9 @@ class MySQL
 	}
 	
 	/*
-		Gibt die ID des letzten eingetragenen Datensatzes aus
-		Parameter: Keine
-		Return: ID des letzten Datensatzes
+		Get the ID of the last Insert Row
+		Params: Nothing
+		Return: ID
 	*/
 	public function LastInsertID()
 	{
@@ -86,20 +86,19 @@ class MySQL
 	}
 	
 	/*
-		"Escaped" einen Wert 
-		Parameter: Den zu escapenden wert
-		Return: Escapter Wert
+		"Escaped" any value
+		Params: The escape Value
+		Returned: Escaped Value
 	*/
 	public function Escape($param)
 	{
-		//Sollte es eine einfache Methode in PDO geben, um nur Einen wert zu escapen, lasst es mich wissen.
 		return mysql_real_escape_string($param);
 	}
 	
 	/*
-		Holt einen Wert aus der Datenbank
-		Parameter: Query, SELECT * .. !
-		Return: einen Array, Werte sind als Feldnamen gespeichert, siehe Beispiel
+		Get Values
+		Params: Query, or see the exampes
+		Returned: An Array with the Values
 	*/
 	public function FetchObject($query)
 	{
