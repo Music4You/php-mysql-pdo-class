@@ -1,21 +1,21 @@
 <?php
 require_once('mysql.pdo.class.php');
 
-//öffnen der Verbindung
+//Opnen the Connection
 $db = new MySQL();
 
-//Absenden eines Querys
+//Send a Query
 $db->Query("INSERT INTO `table` (`row`) VALUES ('count')");
 
-//Anzahl der Datensätze bekommen
+//Get the Count of Rows
 $db->Query("SELECT * FROM table");
 echo $db->RowCount();
 
-//ID des letzten Datensatzes bekommen
+//Get The ID of the last row
 $db->Query("INSERT INTO `table` (`row`) VALUES ('count')");
 $db->LastInsertID();
 
-//Werte auslesen
+//Get values
 $db->Query("SELECT * FROM tabelle WHERE id='1'");
 $array = $db->FetchObject();
 echo $array['column1'];
